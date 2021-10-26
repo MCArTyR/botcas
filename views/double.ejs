@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=500,user-scalable=no">
+        <title>Double</title>
+        <link rel="stylesheet" href="/global.css">
+        <link rel="stylesheet" href="/double.css">
+    </head>
+    <body>
+        <div id="content">
+            <div id="game">
+                <div id="game-img"></div>
+                <div id="game-cont">
+                    <div id="game-name">Double game</div>
+                    <div id="game-bet">
+                        <div id="game-summ">0</div>
+                        <img src="/money.png" id="game-money-icon" />
+                    </div>
+                </div>
+            </div>
+            <div id="game-content">
+                <div id="game-bets">
+                    <div id="game-bets-2">
+
+                        <div id="bet-text">Ставка</div>
+                        <div id="bet_summ">
+                            <input type="number" id="bet_input" oninput="checkBet()" placeholder="Введите сумму...">
+                            <button class="input-change" onclick="buttonHalf()">1/2</button>
+                            <button class="input-change" onclick="buttonX2()" style="margin-right: -5px;">x2</button>
+                        </div>
+                        <div class="buttons">
+                            <button class="ebutton" onclick="numRemove()"><svg class="trashcan" viewBox="0 0 16 18" id="busket"><path d="M15.608 3.715a.345.345 0 00-.254-.1h-3.42l-.775-1.847c-.11-.274-.31-.506-.597-.698-.288-.192-.58-.288-.875-.288H6.145c-.295 0-.586.096-.874.288-.288.192-.487.424-.598.698L3.9 3.616H.479a.345.345 0 00-.255.1.345.345 0 00-.1.254v.708c0 .104.034.188.1.255.067.066.151.1.255.1H1.54v10.536c0 .612.173 1.134.52 1.566.347.432.764.647 1.251.647h9.209c.487 0 .903-.223 1.25-.669.347-.447.52-.976.52-1.588V5.032h1.063a.345.345 0 00.254-.1.345.345 0 00.1-.254V3.97a.345.345 0 00-.1-.255zM5.98 2.321a.312.312 0 01.189-.122h3.508a.313.313 0 01.188.122l.532 1.295h-4.96L5.98 2.32zm6.896 13.204a1.253 1.253 0 01-.238.747c-.056.063-.094.094-.117.094H3.313c-.022 0-.06-.031-.116-.094a1.258 1.258 0 01-.238-.747V5.032h9.917v10.493z"></path><path d="M4.729 14.24h.708a.344.344 0 00.255-.099.346.346 0 00.1-.254V7.51a.345.345 0 00-.1-.254.345.345 0 00-.255-.1h-.708a.345.345 0 00-.255.1.345.345 0 00-.1.254v6.376a.342.342 0 00.355.354zm2.833 0h.708a.344.344 0 00.255-.099.344.344 0 00.1-.254V7.51a.344.344 0 00-.1-.254.345.345 0 00-.255-.1h-.708a.345.345 0 00-.254.1.345.345 0 00-.1.254v6.376a.341.341 0 00.354.354zm2.834 0h.708a.345.345 0 00.255-.099.345.345 0 00.099-.254V7.51a.345.345 0 00-.1-.254.345.345 0 00-.254-.1h-.708a.345.345 0 00-.255.1.345.345 0 00-.1.254v6.376a.344.344 0 00.355.354z"></path></svg></button>
+                            <button class="ebutton" onclick="numAdd(10)">10+</button>
+                            <button class="ebutton" onclick="numAdd(100)">100+</button>
+                            <button class="ebutton" onclick="numAdd(1000)">1000+</button>
+                            <button class="ebutton" onclick="numFull()">Всё</button>
+                        </div>
+                        <div id="bet-text">Поставить</div>
+                        <div class="buttons">
+                            <button class="bet-button black-b" onclick="bet(0)">x2</button>
+                            <button class="bet-button yellow-b" onclick="bet(1)">x3</button>
+                            <button class="bet-button red-b" onclick="bet(2)">x5</button>
+                            <button class="bet-button green-b" onclick="bet(3)">x50</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="game-info">
+                    <div id="circle-out"><svg id="circle" width="380" height="380"></svg></div>
+                    <div id="circle-inner">
+                        <div id="arrow"></div>
+                        <div id="before_game">До начала игры</div>
+                        <div id="timer">
+                            <svg id="clock" viewBox="0 0 29 29" id="clock"><path d="M14.063.782c-7.7 0-14 6.3-14 14s6.3 14 14 14 14-6.3 14-14-6.3-14-14-14zm0 25.2c-6.16 0-11.2-5.04-11.2-11.2 0-6.16 5.04-11.2 11.2-11.2 6.16 0 11.2 5.04 11.2 11.2 0 6.16-5.04 11.2-11.2 11.2z"></path><path d="M14.763 7.782h-2.1v8.4l7.28 4.48 1.12-1.82-6.3-3.78v-7.28z"></path></svg>
+                            <div id="timer_value">0.0</div>
+                        </div>
+                        <div id="queue"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="bets-container">
+
+                <div id="cont-black" class="bet-container" onclick="cBet(0)">
+                    <div class="bet-top bb-black">
+                        <div class="bet-title">Ставка x2</div>
+                        <div class="bet-summ-1">
+                            <img src="/money-middle.png" class="bet-summ-img"/>
+                            <div class="bet-summ-2" id="summ-black">0</div>
+                        </div>
+                    </div>
+                    <div id="middle-black" class="bet-middle">
+                        Нет ставок!
+                    </div>
+                    <div class="bet-bottom" id="bottom-black"></div>
+                </div>
+                <div id="cont-yellow" class="bet-container" onclick="cBet(1)">
+                    <div class="bet-top bb-yellow">
+                        <div class="bet-title">Ставка x3</div>
+                        <div class="bet-summ-1">
+                            <img src="/money-middle.png" class="bet-summ-img"/>
+                            <div class="bet-summ-2" id="summ-yellow">0</div>
+                        </div>
+                    </div>
+                    <div id="middle-yellow" class="bet-middle">
+                        Нет ставок!
+                    </div>
+                    <div class="bet-bottom" id="bottom-yellow"></div>
+                </div>
+                <div id="cont-red"  class="bet-container" onclick="cBet(2)">
+                    <div class="bet-top bb-red">
+                        <div class="bet-title">Ставка x5</div>
+                        <div class="bet-summ-1">
+                            <img src="/money-middle.png" class="bet-summ-img"/>
+                            <div class="bet-summ-2" id="summ-red">0</div>
+                        </div>
+                    </div>
+                    <div id="middle-red" class="bet-middle">
+                        Нет ставок!
+                    </div>
+                    <div class="bet-bottom" id="bottom-red"></div>
+                </div>
+                <div id="cont-green" class="bet-container" onclick="cBet(3)">
+                    <div class="bet-top bb-green">
+                        <div class="bet-title">Ставка x50</div>
+                        <div class="bet-summ-1">
+                            <img src="/money-middle.png" class="bet-summ-img"/>
+                            <div class="bet-summ-2" id="summ-green">0</div>
+                        </div>
+                    </div>
+                    <div id="middle-green" class="bet-middle">
+                        Нет ставок!
+                    </div>
+                    <div class="bet-bottom" id="bottom-green"></div>
+                </div>
+
+            </div>
+        </div>
+        <%- include("header") %>
+        <%- include("infoContainer") %>
+        <script src="/double.js"></script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<div id="info-container"></div>
+<script>
+    function showInfo(type, text){
+        let addClass = "info-error";
+        if(type === 1) addClass = "info-success";
+        if(type === 2) addClass = "info-info";
+        let div = document.createElement("div");
+        div.innerText = text;
+        div.classList.add("info-table");
+        div.classList.add("info-table-inactive");
+        div.classList.add(addClass);
+        document.getElementById("info-container").appendChild(div);
+        setTimeout(() => {
+            div.classList.remove("info-table-inactive");
+            div.classList.add("info-active");
+        }, 100);
+        setTimeout(() => {
+            div.classList.add("info-anti-active");
+            setTimeout(() => { div.remove(); }, 400);
+        }, 3000);
+    }
+
+    function parseInfo(msg){
+        if(msg.op == 101){
+            showInfo(0, msg.text);
+        }else if(msg.op == 102){
+            showInfo(1, msg.text);
+        }else if(msg.op == 103){
+            showInfo(2, msg.text);
+        }
+    }
+</script>

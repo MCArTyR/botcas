@@ -1,0 +1,51 @@
+<div id="header">
+    <div id="header-left">
+        <div class="logo">
+            <img src="/logo.png" id="logo-img" />
+        </div>
+        <div class="header-entry" onclick="window.open('/double', '_self')">Double</div>
+        <div class="header-entry" onclick="window.open('/nvuti', '_self')">Nvuti</div>
+        <div class="header-entry" onclick="window.open('/jackpot', '_self')">Jackpot</div>
+    </div>
+    <div id="header-right">
+        <div id="balance">
+            <img src="/small_money.png" id="balance-money-img" />
+            <div id="balance-content"><%- data.balance %></div>
+        </div>
+        <div id="user">
+            <img src="<%- data.user.avatar %>" id="user-avatar" />
+        </div>
+    </div>
+    <script>
+        let numberIntervals = {};
+        let numberTimeouts = {};
+        function updateNumber(to, element){
+            let time = 1000;
+            if(numberIntervals[element.id]) clearInterval(numberIntervals[element.id]);
+            if(numberTimeouts[element.id]) clearTimeout(numberTimeouts[element.id]);
+            let from = parseInt(element.innerText);
+            let c = to - from;
+            let cur = from;
+            let interval = setInterval(() => {
+                cur += (c / time) * 11;
+                element.innerText = Math.round(cur);
+            }, 11);
+            numberIntervals[element.id] = interval;
+            let timeout = setTimeout(() => {
+                clearInterval(interval);
+                element.innerText = to;
+                numberIntervals[element.id] = null;
+                numberTimeouts[element.id] = null;
+            }, time);
+            numberTimeouts[element.id] = timeout;
+        }
+        let balance = parseInt(`<%- data.balance %>`);
+        function changeBalance(n){
+            balance = n;
+            updateNumber(balance, document.getElementById("balance-content"));
+        }
+        let user = JSON.parse(`<%- JSON.stringify(data.user) %>`);
+        let wsUrl = `<%- data.ws %>`;
+        let token = `<%- data.wsToken %>`;
+    </script>
+</div>

@@ -1,0 +1,675 @@
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: #f5f5f3;
+}
+::-webkit-scrollbar-thumb{
+    width: 5px;
+    background-color: #f7740f;
+}
+@media screen and (max-width: 1100px){
+    #to-remove-need{
+        display: none !important;
+    }
+    .bet-need{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 900px){
+    #to-remove-number{
+        display: none !important;
+    }
+    .bet-number{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 740px){
+    #to-remove-sum{
+        display: none !important;
+    }
+    .bet-sum{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 550px){
+    #to-remove-chance{
+        display: none !important;
+    }
+    .chance-out{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 975px){
+    #game-content{
+        -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+        height: 640px !important;
+        margin-bottom: 20px !important;
+    }
+    #game-bets{
+        width: 100% !important;
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 20px !important;
+        border-bottom-right-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px !important;
+    }
+    #game-bets-2{
+        max-width: 322px;
+    }
+    #game-info{
+        border-top-right-radius: 20px !important;
+        border-top-left-radius: 20px !important;
+        border-bottom-right-radius: 0px !important;
+        width: 100% !important;
+        height: 340px !important;
+        min-width: 340px !important;
+    }
+}
+#content{
+    padding-top: 60px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#game{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 15px;
+    padding-top: 20px;
+}
+#game-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 15px;
+    height: 70px
+}
+#game-name{
+    font-size: 25px;
+    font-weight: 600;
+}
+#game-img{
+    background-color: #02be7a;
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+}
+#game-content{
+    padding-left: 15px;
+    padding-right: 15px;
+    width: calc(100% - 30px);
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 340px;
+}
+#game-bets{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 375px;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+    padding: 30px 25px 30px 25px;
+}
+#game-info{
+    background-color: #fff;
+    width: calc(100% - 375px);
+    min-width: 340px;
+    height: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#game-bets, #game-info{
+    box-shadow: 0 4px 101px rgb(0 0 0 / 9%);
+}
+#bet-text{
+    font-size: 20px;
+    font-weight: 600;
+    color: #393838;
+}
+#bet_summ, #bet_percent{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    border: 1px solid var(--backdrop);
+    border-radius: 10px;
+}
+.input-change{
+    padding: 5px 10px 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    background-color: #f4f4f2;
+    font-weight: 600;
+    margin-left: 5px;
+    transition: all .3s ease;
+}
+.input-change:hover{
+    background-color: #dbdbd6;
+}
+#bet_input, #bet_percent_input{
+    color: #393838;
+    border: none;
+    height: 35px;
+    width: 100%;
+    outline: none;
+}
+#bet_input::-webkit-outer-spin-button,
+#bet_input::-webkit-inner-spin-button,
+#bet_percent_input::-webkit-outer-spin-button,
+#bet_percent_input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#bet_input[type=number] {
+    -moz-appearance: textfield;
+}
+.buttons{
+    height: 50px;
+    width: 322px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ebutton{
+    width: 60px;
+    height: 35px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+    background-color: #fff;
+    border: solid 1px #dbdbd6;
+    border-radius: 5px;
+    outline: none;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.ebutton:hover{
+    background-color: #f7740f;
+    border-color: #f7740f;
+}
+.trashcan{
+    width: 15px;
+}
+#hash-check-img{
+    width: 16px;
+}
+#hash-copy-img{
+    width: 13px;
+}
+#hash-info{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -270px;
+}
+#hash{
+    margin-left: 20px;
+    background-color: #f4f4f2;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 9px;
+    padding-right: 13px;
+}
+#hash div{
+    color: #a9a9a9;
+    font-size: 10px;
+}
+#hash-copy-btn{
+    margin-left: 6.5px;
+    background-color: transparent;
+    border: none;
+    margin-right: 2px;
+    outline: none;
+}
+#hash-text{
+    margin-left: 6.5px;
+    max-width: 55px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#hash-copy-img path{
+    transition-duration: .3s;
+    fill: #a9a9a9;
+}
+#hash-copy-btn:hover #hash-copy-img path{
+    fill: #f7740f;
+}
+#hash-check-btn{
+    height: 32px;
+    width: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+#hash-check-img path{
+    transition-duration: .3s;
+    fill: #a9a9a9;
+}
+#hash-check-btn:hover #hash-check-img path{
+    fill: #f7740f;
+}
+#game-inner{
+    width: 260px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 70px;
+    position: absolute;
+}
+#game-money{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 80px;
+    font-weight: 600;
+    color: #262b3f;
+    height: 100px;
+}
+#buttons{
+    height: 70px;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.sb{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sbtn{
+    width: 110px;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #f7740f;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.sbtn:hover{
+    background-color: #de6100;
+}
+.sbtn:focus{
+    box-shadow: 0 0 0 .2rem rgba(247, 116, 15, 0.5);
+}
+.sbtn[disabled]{
+    background-color: #a9a9a9 !important;
+    color: #fff;
+    text-decoration: line-through;
+    cursor: default;
+    box-shadow: none !important;
+}
+.sbtn[disabled] #arrow-down path, .sbtn[disabled] #arrow-up path{
+    fill: #fff;
+}
+.sinfo{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+}
+#arrow-down, #arrow-up{
+    width: 16px;
+    margin-right: 5px;
+}
+#arrow-down path, #arrow-up path{
+    transition-duration: .4s;
+}
+#result{
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: #fff;
+    background-color: #02be7a;
+    border-radius: 10px;
+    transition-duration: .4s;
+    opacity: 0;
+}
+.r-active{
+    opacity: 1 !important;
+}
+#checker-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    opacity: 0;
+    transition-duration: .4s;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.35);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 15px;
+}
+#checker-inner{
+    position: relative;
+    max-width: 720px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+#checker-inner span{
+    font-weight: 700;
+    font-size: 20px;
+}
+#checker-inner p {
+    font-weight: 600;
+    font-size: 12px;
+}
+#exit{
+    width: 18px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+#exit-img{
+    width: 18px;
+}
+#exit-img path{
+    stroke: #a9a9a9;
+}
+.mm{
+    margin: 15px 0;
+    font-weight: 700;
+    font-size: 20px;
+}
+.mm2{
+    margin: 0 0 8px 4px;
+    font-weight: 600;
+    font-size: 12px;
+}
+#hash_input{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    border: 1px solid var(--backdrop);
+    border-radius: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#hash_input_value{
+    color: #393838;
+    border: none;
+    height: 33px;
+    width: 100%;
+    outline: none;
+}
+.spec-button{
+    padding: 12px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 10px;
+    background-color: #f7740f;
+    transition-duration: .4s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.spec-button:hover{
+    background-color: #de6100;
+}
+.spec-button:focus{
+    box-shadow: 0 0 0 .2rem rgba(247, 116, 15, 0.5);
+}
+.arrow-right{
+    width: 15px;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+.arrow-right path{
+    fill: rgba(0, 0, 0, 0.27);
+}
+.spec-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+#hash-data{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    min-height: 100px;
+}
+.hash-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    min-width: 250px;
+    max-width: 250px;
+}
+.first-content{
+    font-weight: 600;
+    font-size: 13px;
+}
+.second-content{
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    justify-content: center;
+}
+#salt-container, #hash-container{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 4px 10px;
+    border-radius: 10px;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--backdrop);
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+}
+#hash-text-c, #salt-text{
+    max-width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.copy-button-img{
+    width: 18px;
+}
+.copy-button-img path{
+    fill: #f7740f;
+}
+#add-cont{
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+#last-bets{
+    margin-top: 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px;
+    width: calc(100%);
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-shadow: 0 4px 101px rgb(0 0 0 / 9%);
+    box-shadow: 0 4px 101px rgb(0 0 0 / 9%);
+}
+#bh{
+    font-weight: 600;
+}
+#all-bets {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px;
+}
+.bet{
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #dbdbd6;
+    height: 75px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+#add-bets{
+    width: 100%;
+}
+#bet-no-info{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+.bbb{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.bet-username, .bet-number, .bet-need, .bet-sum, .bet-win{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bet-username{
+    font-weight: 500;
+    font-size: 13px;
+    color: #393838;
+    min-width: 120px;
+}
+.bet-number{
+    font-weight: 500;
+    font-size: 13px;
+    min-width: 120px;
+}
+.bet-need{
+    font-weight: 500;
+    font-size: 13px;
+    min-width: 140px;
+}
+.bet-sum{
+    font-weight: 500;
+    font-size: 13px;
+    min-width: 140px;
+}
+.money-icon{
+    margin-right: 6px;
+}
+.chance-out{
+    width: 100px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: #dbdbd6;
+}
+.chance-in{
+    height: 100%;
+    border-radius: 3px;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.39,.575,.565,1);
+}
+.bet-win{
+    font-weight: 500;
+    font-size: 13px;
+    min-width: 120px;
+}

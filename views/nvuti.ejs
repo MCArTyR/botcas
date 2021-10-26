@@ -1,0 +1,128 @@
+<html>
+<head>
+    <meta name="viewport" content="width=500,user-scalable=no">
+    <title>Nvuti</title>
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/nvuti.css">
+</head>
+<body>
+<div id="content">
+    <div id="game">
+        <div id="game-img"></div>
+        <div id="game-cont">
+            <div id="game-name">Nvuti game</div>
+        </div>
+    </div>
+    <div id="game-content">
+        <div id="game-bets">
+            <div id="game-bets-2">
+
+                <div id="bet-text">Ставка</div>
+                <div id="bet_summ">
+                    <input type="number" id="bet_input" oninput="checkBet()" placeholder="Введите сумму...">
+                    <button class="input-change" onclick="buttonHalf()">1/2</button>
+                    <button class="input-change" onclick="buttonX2()" style="margin-right: -5px;">x2</button>
+                </div>
+                <div class="buttons">
+                    <button class="ebutton" onclick="numRemove()"><svg class="trashcan" viewBox="0 0 16 18" id="busket"><path d="M15.608 3.715a.345.345 0 00-.254-.1h-3.42l-.775-1.847c-.11-.274-.31-.506-.597-.698-.288-.192-.58-.288-.875-.288H6.145c-.295 0-.586.096-.874.288-.288.192-.487.424-.598.698L3.9 3.616H.479a.345.345 0 00-.255.1.345.345 0 00-.1.254v.708c0 .104.034.188.1.255.067.066.151.1.255.1H1.54v10.536c0 .612.173 1.134.52 1.566.347.432.764.647 1.251.647h9.209c.487 0 .903-.223 1.25-.669.347-.447.52-.976.52-1.588V5.032h1.063a.345.345 0 00.254-.1.345.345 0 00.1-.254V3.97a.345.345 0 00-.1-.255zM5.98 2.321a.312.312 0 01.189-.122h3.508a.313.313 0 01.188.122l.532 1.295h-4.96L5.98 2.32zm6.896 13.204a1.253 1.253 0 01-.238.747c-.056.063-.094.094-.117.094H3.313c-.022 0-.06-.031-.116-.094a1.258 1.258 0 01-.238-.747V5.032h9.917v10.493z"></path><path d="M4.729 14.24h.708a.344.344 0 00.255-.099.346.346 0 00.1-.254V7.51a.345.345 0 00-.1-.254.345.345 0 00-.255-.1h-.708a.345.345 0 00-.255.1.345.345 0 00-.1.254v6.376a.342.342 0 00.355.354zm2.833 0h.708a.344.344 0 00.255-.099.344.344 0 00.1-.254V7.51a.344.344 0 00-.1-.254.345.345 0 00-.255-.1h-.708a.345.345 0 00-.254.1.345.345 0 00-.1.254v6.376a.341.341 0 00.354.354zm2.834 0h.708a.345.345 0 00.255-.099.345.345 0 00.099-.254V7.51a.345.345 0 00-.1-.254.345.345 0 00-.254-.1h-.708a.345.345 0 00-.255.1.345.345 0 00-.1.254v6.376a.344.344 0 00.355.354z"></path></svg></button>
+                    <button class="ebutton" onclick="numAdd(10)">10+</button>
+                    <button class="ebutton" onclick="numAdd(100)">100+</button>
+                    <button class="ebutton" onclick="numAdd(1000)">1000+</button>
+                    <button class="ebutton" onclick="numFull()">Всё</button>
+                </div>
+                <div id="bet-text">Процент</div>
+                <div id="bet_percent">
+                    <input type="number" id="bet_percent_input" oninput="checkChance()" placeholder="Ваш процент...">
+                </div>
+            </div>
+        </div>
+        <div id="game-info">
+            <div id="hash-info">
+                <div id="hash">
+                    <div>Хэш следующей игры:</div>
+                    <div id="hash-text">asdasdadsdasdas</div>
+                    <button id="hash-copy-btn" onclick="copyHash()"><svg id="hash-copy-img" viewBox="0 0 29 29"><g clip-path="url(#copy_clip0)"><path d="M19.896.453H4.623a2.553 2.553 0 00-2.545 2.545v17.819h2.545V2.998h15.273V.453zm3.818 5.09h-14A2.553 2.553 0 007.17 8.09v17.819c0 1.4 1.145 2.545 2.545 2.545h14c1.4 0 2.546-1.145 2.546-2.546V8.09c0-1.4-1.146-2.545-2.546-2.545zm0 20.364h-14V8.09h14v17.819z"></path></g></svg></button>
+                </div>
+                <button id="hash-check-btn" onclick="toggleChecker(true)">
+                    <div id="hash-check-img"><svg viewBox="0 0 18 18" id="hash-check-img"><g clip-path="url(#security_clip0)"><path d="M9.615 13.86a4.067 4.067 0 014.067-4.067c.473 0 .779.057 1.1.152.215.091.298-.09.32-.173a6.47 6.47 0 00.23-1.673l-.021-4.897c0-.474-.271-.473-.393-.472-.868.004-1.754.005-2.686-.264C10.296 1.908 8.575.391 7.921.391c-.634 0-1.912 1.517-3.848 2.075-1.091.315-2.138.256-3.117.21-.116-.004-.299-.035-.357.364-.015.1-.09 5.005-.09 5.06 0 4.79 5.929 9.291 7.412 9.291.474 0 1.239-.38 2.268-1.147.137-.118.064-.197.023-.263a4.046 4.046 0 01-.597-2.12z"></path><path d="M13.707 15.934a.42.42 0 01-.543.051l-2.576-1.904a.364.364 0 01-.074-.51l.33-.44a.373.373 0 01.516-.075l1.652 1.212a.423.423 0 00.544-.052l2.331-2.44a.366.366 0 01.517-.02l.402.375a.37.37 0 01.02.518l-3.119 3.285z"></path></g></svg></div>
+                </button>
+            </div>
+
+            <div id="game-inner">
+                <div id="game-money">0</div>
+                <div id="buttons">
+                    <div class="sb">
+                        <button class="sbtn" onclick="bet(0)"><svg viewBox="0 0 16 9" id="arrow-down"><path d="M7.293 8.707a1 1 0 001.414 0l6.364-6.364A1 1 0 0013.657.93L8 6.586 2.343.929A1 1 0 00.93 2.343l6.364 6.364zM7 7v1h2V7H7z"></path></svg>
+                        Меньше</button>
+                        <div id="smaller" class="sinfo">0 - 0</div>
+                    </div>
+                    <div class="sb">
+                        <button class="sbtn" onclick="bet(1)"><svg viewBox="0 0 16 9" id="arrow-up"><path d="M8.707.293a1 1 0 00-1.414 0L.929 6.657A1 1 0 002.343 8.07L8 2.414l5.657 5.657a1 1 0 101.414-1.414L8.707.293zM9 2V1H7v1h2z"></path></svg>
+                            Больше</button>
+                        <div id="bigger" class="sinfo">1000000 - 999999</div>
+                    </div>
+                </div>
+                <div id="result">Вам выпало : 0</div>
+            </div>
+        </div>
+    </div>
+    <div id="add-cont">
+        <div id="last-bets">
+            <div id="bh">Последние ставки</div>
+            <div id="bet-no-info">Нет информации</div>
+            <div id="all-bets">
+                <div class="bet" id="bet-title" style="display: none;">
+                    <div style="width: 120px;">Имя</div>
+                    <div id="to-remove-number" style="width: 120px;">Число</div>
+                    <div id="to-remove-need"style="width: 140px;">Цель</div>
+                    <div id="to-remove-sum" style="width: 140px;">Сумма</div>
+                    <div id="to-remove-chance" style="width: 100px;">Шанс</div>
+                    <div style="width: 120px;">Выигрыш</div>
+                </div>
+                <div id="add-bets">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("header") %>
+<div id="checker-container">
+    <div id="checker-inner">
+        <div id="exit" onclick="toggleChecker(false)"><svg id="exit-img" viewBox="0 0 24 24"><path d="M1.43 1.79l20.702 20.703m-20.702 0L22.132 1.79"></path></svg></div>
+        <span>Проверка честности</span>
+        <div id="hash-data">
+            Сначала нужно сыграть
+        </div>
+        <div class="mm">Hash игры</div>
+        <div id="hash-inner"></div>
+        <p>До каждой игры система генерирует строку в которой содержится победное число (от 0 до 999999) и случайный набор символов(соль). Далее сервер шифрует ее алгоритмом SHA-512 и показывает ее вам, это хэш. Это гарантирует 100% честность, т.к победное число известно заранее и вы его видите перед игрой, но в зашифрованном виде. При изменении победного чила изменится и хеш.</p>
+        <div class="mm">Как проверить</div>
+        <p>
+            1. Скопируйте хэш до начала игры<br />
+            2. После игры нажмите кнопку "Проверить"<br />
+            3. Скопируйте поля Число, Соль. Сделайте из них строку вида: число:соль<br />
+            4. Проверьте прямо у нас или вставьте в любой независимый SHA-512 генератор<br />
+            5. Хэш будет совпадать с хэшем скопированным до начала игры<br />
+        </p>
+        <div class="mm2">Скопируйте и вставьте</div>
+        <div id="hash_input">
+            <input type="text" id="hash_input_value" oninput="checkChance()" placeholder="Вставьте сюда 'Число игры:Соль'">
+        </div>
+        <button class="spec-button" onclick="checkHash()">Генерация</button>
+        <div class="mm">Ссылки на независимые генераторы</div>
+        <div class="spec-button-container">
+            <button class="spec-button" onclick="window.open('https://emn178.github.io/online-tools/sha512.html')">Ссылка<svg viewBox="0 0 20 16" class="arrow-right"><path d="M19.635 8.454a1 1 0 000-1.414L13.271.676a1 1 0 10-1.414 1.414l5.657 5.657-5.657 5.656a1 1 0 001.414 1.415l6.364-6.364zm-19.5.293h18.793v-2H.135v2z"></path></svg></button>
+            <button class="spec-button" onclick="window.open('https://convertstring.com/Hash/SHA512')">Ссылка<svg viewBox="0 0 20 16" class="arrow-right"><path d="M19.635 8.454a1 1 0 000-1.414L13.271.676a1 1 0 10-1.414 1.414l5.657 5.657-5.657 5.656a1 1 0 001.414 1.415l6.364-6.364zm-19.5.293h18.793v-2H.135v2z"></path></svg></button>
+            <button class="spec-button" onclick="window.open('http://crypt-online.ru/crypts/sha512/')">Ссылка<svg viewBox="0 0 20 16" class="arrow-right"><path d="M19.635 8.454a1 1 0 000-1.414L13.271.676a1 1 0 10-1.414 1.414l5.657 5.657-5.657 5.656a1 1 0 001.414 1.415l6.364-6.364zm-19.5.293h18.793v-2H.135v2z"></path></svg></button>
+        </div>
+        <div class="mm">Дополнительные материалы</div>
+        <div class="spec-button-container">
+            <button class="spec-button" onclick="window.open('https://ru.wikipedia.org/wiki/SHA-2')">Что такое "SHA-512"<svg viewBox="0 0 20 16" class="arrow-right"><path d="M19.635 8.454a1 1 0 000-1.414L13.271.676a1 1 0 10-1.414 1.414l5.657 5.657-5.657 5.656a1 1 0 001.414 1.415l6.364-6.364zm-19.5.293h18.793v-2H.135v2z"></path></svg></button>
+            <button class="spec-button" onclick="window.open('https://ru.wikipedia.org/wiki/Соль_(криптография)')">Что такое "Соль"<svg viewBox="0 0 20 16" class="arrow-right"><path d="M19.635 8.454a1 1 0 000-1.414L13.271.676a1 1 0 10-1.414 1.414l5.657 5.657-5.657 5.656a1 1 0 001.414 1.415l6.364-6.364zm-19.5.293h18.793v-2H.135v2z"></path></svg></button>
+        </div>
+    </div>
+<%- include("infoContainer") %>
+</div>
+<script src="/nvuti.js"></script>
+</body>
+</html>
