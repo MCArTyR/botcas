@@ -43,3 +43,7 @@
 | host               | Адрес сайта включая порт                                    |
 | wsHost             | Адрес WebSocket включая порт                                |
 | maxCookieAge       | Максимальный срок жизни файлов Cookie                       |
+
+![](https://i.imgur.com/0uuwnU9.png)
+![](https://i.imgur.com/eLwKgIS.png)
+![](https://i.imgur.com/yg4ZJF9.png)
