@@ -16,6 +16,11 @@ app.use(express.static("public"));
 
 app.use('/oauth2', require("./oauth2"));
 
+app.get('/', (req, res) => {
+    if(!req.session.uid) return res.redirect("/oauth2");
+    res.redirect("/double");
+});
+
 app.get('/jackpot', async (req, res) => {
     if(!req.session.uid) return res.redirect("/oauth2");
     let user = await db.get(req.session.uid);
